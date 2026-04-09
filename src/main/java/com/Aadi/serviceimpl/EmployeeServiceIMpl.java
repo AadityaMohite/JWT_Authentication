@@ -2,6 +2,7 @@ package com.Aadi.serviceimpl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -93,6 +94,41 @@ public class EmployeeServiceIMpl implements EmployeeService {
 		
 	  }
 
+
+
+	  
+
+	  @Override
+	  public EmployeeDto updateemployee(Integer Id, EmployeeDto employeeDto) {
+		
+		  
+		Optional<Employee> emp =   employeeRepository.findById(Id);
+		
+		
+		if (emp.isPresent()) {
+		Employee employee	= emp.get();
+		
+		   BeanUtils.copyProperties(employeeDto, employee);
+		   
+		   
+		Employee updatEmployee =   employeeRepository.save(employee);
+		
+		
+		BeanUtils.copyProperties(employee, updatEmployee);
+		
+		return employeeDto;
+		}
+		else {
+			throw new EmployeeNotfoundException("Employee is not found at this id");
+		}
+		  
+	
+	  }
+
+
+
+
+	
 
 
 

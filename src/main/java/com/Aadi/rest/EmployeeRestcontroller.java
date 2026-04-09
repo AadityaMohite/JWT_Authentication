@@ -60,6 +60,17 @@ public class EmployeeRestcontroller {
 		return new  ResponseEntity<Employee>(employee,HttpStatus.OK);
 	}
 	
+	@PostMapping("/update-employee/{id}")
+	public ResponseEntity<EmployeeDto> updateemployees(@PathVariable Integer id,@RequestBody EmployeeDto employeeDto){
+		
+		EmployeeDto employeeDto2  =    employeeService.updateemployee(id, employeeDto);
+		
+		
+		return new ResponseEntity<EmployeeDto>(employeeDto2,HttpStatus.OK);
+		
+		
+	}
+	
 	
 	
 }
