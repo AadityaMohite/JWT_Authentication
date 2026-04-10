@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.web.util.ThrowableCauseExtractor;
 import org.springframework.stereotype.Service;
 
 import com.Aadi.dto.EmployeeDto;
@@ -125,6 +126,27 @@ public class EmployeeServiceIMpl implements EmployeeService {
 	
 	  }
 
+
+
+
+	  @Override
+	  public String deleteemployee(Integer id) {
+	
+		  
+		  if(employeeRepository.existsById(id)) {
+			  employeeRepository.deleteById(id);
+			  
+			  return "Employee is deleted ";
+		  }else {
+			 throw new EmployeeNotfoundException("Employee is not found at this id");
+		  }
+		  
+		
+	  }
+
+	  
+	  
+	  
 
 
 
