@@ -144,6 +144,25 @@ public class EmployeeServiceIMpl implements EmployeeService {
 		
 	  }
 
+
+
+
+	  @Override
+	  public List<Employee> getemployeebyname(String name) {
+		
+		  
+		List<Employee> employees =  employeeRepository.findByName(name);
+		  
+		if(employees.isEmpty()) {
+			throw new EmployeeNotfoundException("Employee is not found at this name");
+		}else {
+			return employees;
+		}
+		
+		  
+		
+	  }
+
 	  
 	  
 	  

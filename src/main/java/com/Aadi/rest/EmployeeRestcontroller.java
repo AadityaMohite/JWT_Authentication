@@ -81,6 +81,13 @@ public class EmployeeRestcontroller {
 	   
    }
 	
+	@GetMapping("/getbyname/{name}")
+	public ResponseEntity<List<Employee>> getemployeebyname(@PathVariable String name){
+		      List<Employee>  employees   =    employeeService.getemployeebyname(name);
+		      
+		      return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+	}
+	
 	
 	
 }

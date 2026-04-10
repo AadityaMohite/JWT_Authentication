@@ -24,4 +24,6 @@ public interface EmployeeService {
   EmployeeDto updateemployee(Integer Id, EmployeeDto employeeDto);
 	
    String deleteemployee(Integer id);
+   
+   List<Employee> getemployeebyname(String name);
 }
