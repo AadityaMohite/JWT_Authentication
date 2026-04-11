@@ -5,6 +5,7 @@ import java.util.stream.Gatherer.Integrator;
 
 import com.Aadi.dto.EmployeeDto;
 import com.Aadi.entity.Employee;
+import com.Aadi.serviceimpl.EmployeeServiceIMpl;
 
 
 
@@ -26,4 +27,8 @@ public interface EmployeeService {
    String deleteemployee(Integer id);
    
    List<Employee> getemployeebyname(String name);
+   
+  List<Employee> getEmployeeBysalary(Double salary);
+  
+  List<Employee>  getEmployeebyemail(String email);
 }

@@ -163,6 +163,42 @@ public class EmployeeServiceIMpl implements EmployeeService {
 		
 	  }
 
+
+
+
+	  @Override
+	  public List<Employee> getEmployeeBysalary(Double salary) {
+		
+	List<Employee> employees   =	  employeeRepository.findBySalary(salary);
+	
+	if(employees.isEmpty()) {
+		throw new EmployeeNotfoundException("Employee is Not found at this salary");
+	}else {
+		return employees;
+	}
+		  
+		  
+		
+	  }
+
+
+
+
+	  @Override
+	  public List<Employee> getEmployeebyemail(String email) {
+		
+		  
+	List<Employee> employees  =	  employeeRepository.findByEmail(email);
+	
+	if(employees.isEmpty()) {
+		throw new EmployeeNotfoundException("Employee is not found for this email");
+	}else {
+		return employees;
+	}
+		  
+		
+	  }
+
 	  
 	  
 	  

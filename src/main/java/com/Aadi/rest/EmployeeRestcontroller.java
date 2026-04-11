@@ -88,6 +88,20 @@ public class EmployeeRestcontroller {
 		      return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
 	}
 	
+	@GetMapping("/getbysalary/{salary}")
+	public ResponseEntity<List<Employee>>getEmployeebysalary(@PathVariable Double salary){
+		
+	List<Employee> employees  =	employeeService.getEmployeeBysalary(salary);
+		
+		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+	}
+	
+  @GetMapping("/getbyemail/{email}")
+  public ResponseEntity<List<Employee>> getEmployeeByemail(@PathVariable String email){
+	 List<Employee> employees = employeeService.getEmployeebyemail(email);
+	 
+	 return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+  }
 	
 	
 }

@@ -29,7 +29,7 @@ public class Employee {
 	
 	private String gender;
 	
-	private Double Salary;
+	private Double salary;
 	
 	
 	
