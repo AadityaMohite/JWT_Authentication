@@ -31,4 +31,6 @@ public interface EmployeeService {
   List<Employee> getEmployeeBysalary(Double salary);
   
   List<Employee>  getEmployeebyemail(String email);
+  
+  List<Employee> getEmployeebygender(String gender);
 }

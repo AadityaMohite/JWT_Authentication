@@ -199,6 +199,24 @@ public class EmployeeServiceIMpl implements EmployeeService {
 		
 	  }
 
+
+
+
+	  @Override
+	  public List<Employee> getEmployeebygender(String gender) {
+		
+		List<Employee> employees =  employeeRepository.findByGender(gender);
+		
+		if(employees.isEmpty()) {
+			throw new EmployeeNotfoundException(gender);
+		}else {
+			return employees;
+		}
+		  
+		  
+		
+	  }
+
 	  
 	  
 	  

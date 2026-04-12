@@ -103,5 +103,15 @@ public class EmployeeRestcontroller {
 	 return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
   }
 	
-	
+	@GetMapping("/getbygender/{gender}")
+	public ResponseEntity<List<Employee>> getEmployeebygender(@PathVariable String gender){
+		
+		
+	List<Employee> employees = employeeService.getEmployeebygender(gender);
+		
+		return new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
+	}
+  
+  
+  
 }
